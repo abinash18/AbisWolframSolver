@@ -45,12 +45,12 @@ const fixedEncodeURI = string => (
 )
 
 const CORSProxy = `https://lin2jing4-cors-${new Date().getDay()}.herokuapp.com/`;
-const loadingURL = "https://cdn.discordapp.com/emojis/847168366396702720.gif";
+const loadingURL = "./loading.gif";
 const canvas = $("#dataInsertion");
 const searchBar = $("#search");
 
 function preQuery(podstate) {
-    var q = `http://api.wolframalpha.com/v2/query?${$("#search").val()}
+    var q = `https://api.wolframalpha.com/v2/query?${$("#search").val()}
         &appid=${appid[Date.now() % appid.length]}
         &input=${location.hash = fixedEncodeURI(document.title = $("#search").val())}
         &output=json
