@@ -10,6 +10,18 @@
  */
 'use strict'
 
+window.MathJax = {
+    loader: {
+        load: ['input/asciimath']
+    },
+    asciimath: {
+        delimiters: [
+            ["$$", "$$"],
+            ['`', '`']
+        ]
+    }
+};
+
 /**
  * Wolfram Alpha Developer AppID Keys. Since Each free key only allows 2000 API calls a month.
  */
@@ -76,7 +88,7 @@ function preQuery(podstate) {
         &podstate = Step-by-step
         &podstate = Show+all+steps
         &podstate = ${podstate?.replaceAll(' ', '+')}
-        &format = image, plaintext
+        &format = image, plaintext, mathml
         &scantimeout = 30
         &podtimeout = 30
         &timeout = 30
@@ -135,6 +147,7 @@ async function query(queryURL, usingState) {
  * 
  */
 function showResults(results) {
+    $("#dataInsertion").html("");
     if (!results.queryresult.success) {
         alert("Error" + results.queryresult.error.code + " " +
             results.queryresult.error.msg);
@@ -179,6 +192,13 @@ function createImages(pod) {
 
     _subpods.forEach(im => {
         var _i = im.img;
+        /* i +=
+            `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
+                <img src="${_i.src}" alt="${_i.alt}">
+                </img>
+                $$${_i.alt}$$
+            </div>
+            <hr class="s"> ` */
         i +=
             `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
                 <img src="${_i.src}" alt="${_i.alt}">
@@ -205,7 +225,9 @@ function createSections(pods) {
                     <hr class = "s">
                     <div id = "infos" class = "i1">
                     <div id = "info1" class = "i2">
-                    <div>
+                    ${createInfos(pod)}
+                    <div id = "infosWithMenu">
+                        
                     </div>
                     </div>
                     </div>
