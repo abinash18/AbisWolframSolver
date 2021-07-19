@@ -74,13 +74,12 @@ const fixedEncodeURI = string => (
     )
 )
 
-const CORSProxy = `https://lin2jing4-cors-${new Date().getDay()}.herokuapp.com/`;
 const loadingURL = "./loading.gif";
 const canvas = $("#dataInsertion");
 const searchBar = $("#search");
-
-function preQuery(podstate) {
-    var q = `https://api.wolframalpha.com/v2/query?${fixedEncodeURI($("#search").val())}
+$(document).ready(function () {
+    function preQuery(podstate) {
+        var q = `https://api.wolframalpha.com/v2/query?${fixedEncodeURI($("#search").val())}
         &appid=${appid[Date.now() % appid.length]}
         &input=${location.hash = fixedEncodeURI(document.title = $("#search").val())}
         &output=json
@@ -95,126 +94,128 @@ function preQuery(podstate) {
         &parsetimeout = 30
         &totaltimeout = 30
     `;
-    q = q.replaceAll("\n", '');
-    q = q.replaceAll("\t", '');
-    q = q.replaceAll(" ", '');
-    //q = fixedEncodeURI(q);
-    console.log(q);
-    query(q, podstate);
-};
-$("#clearInput").click(function () {
-    $("#search").val("");
-});
-
-/**
- * 
- * @param {string} queryURL The input to the wolfram api  
- * @param {string} usingState If there was a previous state
- *  that was used, so we can use that in the state select drop down.
- */
-async function query(queryURL, usingState) {
-    var _result;
-    // AJAX cause why not. And cause it is a CORS workaround
-    $.ajax({
-        type: "GET",
-        url: queryURL,
-        success: function (result) {
-            console.log(result);
-        },
-        dataType: "jsonp",
-        async: true,
-        cache: false,
-        headers: {
-            "accept": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        },
-        beforeSend: function (result) {
-            $("#loading").toggleClass("loadingHidden");
-        },
-        complete: function (result) {
-            $("#loading").toggleClass("loadingHidden");
-
-        },
-        error: function (xhr, status, error) {
-            console.log(xhr + status + error);
-        }
-    }).done(function (data) {
-        showResults(data);
+        q = q.replaceAll("\n", '');
+        q = q.replaceAll("\t", '');
+        q = q.replaceAll(" ", '');
+        //q = fixedEncodeURI(q);
+        console.log(q);
+        query(q, podstate);
+    };
+    $("#clearInput").click(function () {
+        $("#search").val("");
     });
-}
 
-/**
- * 
- */
-function showResults(results) {
-    $("#dataInsertion").html("");
-    if (!results.queryresult.success) {
-        alert("Error" + results.queryresult.error.code + " " +
-            results.queryresult.error.msg);
+    /**
+     * 
+     * @param {string} queryURL The input to the wolfram api  
+     * @param {string} usingState If there was a previous state
+     *  that was used, so we can use that in the state select drop down.
+     */
+    async function query(queryURL, usingState) {
+        var _result;
+        // AJAX cause why not. And cause it is a CORS workaround
+        $.ajax({
+            type: "GET",
+            url: queryURL,
+            success: function (result) {
+                console.log(result);
+            },
+            dataType: "jsonp",
+            async: true,
+            cache: false,
+            headers: {
+                "accept": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            beforeSend: function (result) {
+                $("#loading").toggleClass("loadingHidden");
+            },
+            complete: function (result) {
+                $("#loading").toggleClass("loadingHidden");
+
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr + status + error);
+            }
+        }).done(function (data) {
+            showResults(data);
+            MathJax.Hub.Typeset();
+        });
     }
-    var pods = results.queryresult.pods;
-    /* console.log(pods = results.queryresult.pods); */
-    /* pods.forEach(pod => {
-        console.log(pod.title);
-    }); */
-    createSections(pods);
-}
 
-function createInfos(pod) {
-    var _infos = "";
-    var infos = pod.infos;
-    // checks if there is a infos element
-    if (infos) {
-        // checks if the infos element is an traversable array.
-        if (!Array.isArray(infos)) {
-            console.log(infos.text);
-            _infos +=
-                `<button tabindex = "0" type = "button" class = "ib">
-                <p class = "ib">${infos.text}</p>
-                </button>`
-        } else {
-            infos.forEach((info) => {
+    /**
+     * 
+     */
+    function showResults(results) {
+        $("#dataInsertion").html("");
+        if (!results.queryresult.success) {
+            alert("Error" + results.queryresult.error.code + " " +
+                results.queryresult.error.msg);
+        }
+        var pods = results.queryresult.pods;
+        /* console.log(pods = results.queryresult.pods); */
+        /* pods.forEach(pod => {
+            console.log(pod.title);
+        }); */
+        createSections(pods);
+    }
+
+    function createInfos(pod) {
+        var _infos = "";
+        var infos = pod.infos;
+        // checks if there is a infos element
+        if (infos) {
+            // checks if the infos element is an traversable array.
+            if (!Array.isArray(infos)) {
+                console.log(infos.text);
                 _infos +=
                     `<button tabindex = "0" type = "button" class = "ib">
+                <p class = "ib">${infos.text}</p>
+                </button>`
+            } else {
+                infos.forEach((info) => {
+                    _infos +=
+                        `<button tabindex = "0" type = "button" class = "ib">
                     <p class = "ib">${info.text}</p>
                     </button>`
-            });
+                });
+            }
         }
+
+        return _infos;
     }
 
-    return _infos;
-}
+    function createImages(pod) {
+        console.log(pod.subpods);
+        var i = "";
+        var _subpods = pod.subpods;
 
-function createImages(pod) {
-    console.log(pod.subpods);
-    var i = "";
-    var _subpods = pod.subpods;
-
-    _subpods.forEach(im => {
-        var _i = im.img;
-        /* i +=
-            `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
+        _subpods.forEach(im => {
+            var _i = im.img;
+            i +=
+                `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
                 <img src="${_i.src}" alt="${_i.alt}">
                 </img>
-                $$${_i.alt}$$
-            </div>
-            <hr class="s"> ` */
-        i +=
-            `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
-                <img src="${_i.src}" alt="${_i.alt}">
-                </img>
+                $${_i.alt}$
+                <p>
+                
+                    ${
+                        im.mathml?.replaceAll(" </mtext>", "&nbsp;</mtext>")?.replaceAll("<mtext> ", "<mtext>&nbsp;")
+                    }
+                
+                </p>
             </div>
             <hr class="s"> `
-    });
+        });
 
-    return i;
-}
+        return i;
+    }
 
-function createSections(pods) {
-    pods.forEach((pod, i) => {
-        console.log(pod.title);
-        $("#dataInsertion").html(function () {
-            var r = `
+    function createSections(pods) {
+        pods.forEach((pod, i) => {
+            console.log(pod.title);
+            $("#dataInsertion").html(function () {
+                var r = `
                     <section class = "s2">
                     <header class = "h1">
                     <h2 class = "head1">${pod.title}:</h2>
@@ -225,7 +226,7 @@ function createSections(pods) {
                     <hr class = "s">
                     <div id = "infos" class = "i1">
                     <div id = "info1" class = "i2">
-                    ${createInfos(pod)}
+                        ${createInfos(pod)}
                     <div id = "infosWithMenu">
                         
                     </div>
@@ -233,24 +234,29 @@ function createSections(pods) {
                     </div>
                     </section>
                     `
-            return $("#dataInsertion").html() + r;
-        })
+                return $("#dataInsertion").html() + r;
+            })
+        });
+
+    }
+
+    $("form").submit(function (event) {
+        event.preventDefault();
+        preQuery();
+
     });
+    /* $('#form').submit(function (e) {
+        e.preventDefault();
+    }); */
 
-}
+    window.onhashchange = event => {
+        $("#search").focus();
+        $("#search").val(decodeURIComponent(location.hash.slice(1)));
+    };
 
-$("#form").submit(async function (event) {
-    event.preventDefault();
-    preQuery();
+    window.onhashchange();
+
+    function showError(xhr, status, error) {
+        console.log(error, status, xhr);
+    }
 });
-
-window.onhashchange = event => {
-    $("#search").focus();
-    $("#search").val(decodeURIComponent(location.hash.slice(1)));
-};
-
-window.onhashchange()
-
-function showError(xhr, status, error) {
-    console.log(error, status, xhr);
-}

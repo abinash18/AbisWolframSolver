@@ -7,22 +7,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="./index.css">
 	<meta name="description" content="Wolfram alpha Step by step solver fully client side.">
-	<script>
-		window.MathJax = {
-			tex: {
-				inlineMath: [
-					["$", "$"],
-					["\\(", "\\)"]
-				]
-			}
-		};
-	</script>
-	<script async src="https://code.jquery.com/jquery-3.6.0.min.js"
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script> -->
-	<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_CHTML"></script>
-	<script async src="./index.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+	</script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		config: ["MMLorHTML.js"],
+		jax: ["input/TeX","input/MathML","output/HTML-CSS","output/NativeMML"],
+		extensions: ["tex2jax.js","mml2jax.js","MathMenu.js","MathZoom.js"],
+		TeX: {
+		extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+		},
+		tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+		"HTML-CSS": {
+		linebreaks: { automatic: true, width: "container" },
+		extensions: ["handle-floats.js"]
+		},
+		SVG: { linebreaks: { automatic: true, width: "container" } }
+		});
+</script>
+	<script src="./index.js"></script>
 </head>
 
 <body>
