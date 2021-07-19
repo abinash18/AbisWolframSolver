@@ -202,11 +202,11 @@ $(document).ready(function () {
                 </img>
                 $${_i.alt}$
                 <p>
-                
+
                     ${im.mathml
                       ?.replaceAll(" </mtext>", "&nbsp;</mtext>")
                       ?.replaceAll("<mtext> ", "<mtext>&nbsp;")}
-                
+
                 </p>
             </div>
             <hr class="s"> `;
@@ -232,7 +232,7 @@ $(document).ready(function () {
                     <div id = "info1" class = "i2">
                         ${createInfos(pod)}
                     <div id = "infosWithMenu">
-                        
+
                     </div>
                     </div>
                     </div>
