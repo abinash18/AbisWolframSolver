@@ -1,6 +1,6 @@
-#Abis Wolfram Solver
+# Abis Wolfram Solver
 
-##A free wolfram full results and step by step api resolver.
+## A free wolfram full results and step by step api resolver.
 
 Fully frontend no suspicious proxy like the other repo [here](https://github.com/WolfreeAlpha)
 
