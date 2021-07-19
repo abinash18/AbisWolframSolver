@@ -151,6 +151,7 @@ $(document).ready(function () {
         if (!results.queryresult.success) {
             alert("Error" + results.queryresult.error.code + " " +
                 results.queryresult.error.msg);
+            $("#loading").toggleClass("loadingHidden");
         }
         var pods = results.queryresult.pods;
         /* console.log(pods = results.queryresult.pods); */
