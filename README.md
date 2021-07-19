@@ -11,3 +11,20 @@ Since I removed the CORS Proxy by using jQuery's AJAX the requests to the api re
 All javascript is perfusly documented and unobscured so you can look through it to verify theres no funny business. Except the css it is minified.
 
 Albeit I still give credit to the original creator for the API keys. Since one key only allows 2000 api calls a month, I am using the ones from the original repo.
+
+TODO:
+- Add page static downloading
+  - Export to markdown
+  - Export static html with embedded js
+  - Export to PDF
+- Add Infos
+- Add drop down for copy to clipboard single pod
+  - Latex
+  - MathML
+  - Inline Markdown
+  - Inline Latex 
+
+- Add drop down for downloading single pod
+  - Export SVG
+  - Export Markdown
+  - Export PNG
