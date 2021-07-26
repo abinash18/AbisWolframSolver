@@ -23,9 +23,17 @@ window.MathJax = {
 };
 
 /**
+ * I did some bullshit to get these don't @ me; its legal as far as I know.
+ * Its 25k calls a month 1 MB file size limit and 3 page pdf limit.
+ * The response time is about 3.45s, its free, fight me
+ * nvm dosnt work with math
+ */
+const ocrAPPID = ["1f95b3d90088957", "63f10d2d1988957", "07f4e6b88688957"];
+
+/**
  * Wolfram Alpha Developer AppID Keys. Since Each free key only allows 2000 API calls a month.
  */
-const appid = [
+const wolframAPPID = [
     "26LQEH-YT3P6T3YY9",
     "K49A6Y-4REWHGRWW6",
     "J77PG9-UY8A3WQ2PG",
@@ -75,154 +83,268 @@ const fixedEncodeURI = (string) =>
 const loadingURL = "./loading.gif";
 const canvas = $("#dataInsertion");
 const searchBar = $("#search");
-$(document).ready(function() {
-    function preQuery(podstate) {
-        var q = `https://api.wolframalpha.com/v2/query?${fixedEncodeURI(
-      $("#search").val()
+const recievePodstates =
+    "&podstate=Step-by-step+solution&podstate=Step-by-step&podstate=Show+all+steps";
+const format = "&format = image, plaintext, mathml";
+const timeouts =
+    "&scantimeout=60&podtimeout=60&timeout=60&parsetimeout=60&totaltimeout=60";
+const output = "&output=json";
+var additionalStates = new Array();
+function getStates() {
+    if (additionalStates.length != 0) {
+        return (
+            "&podstate=" +
+            additionalStates.join("&podstate=").replaceAll(" ", "+")
+        );
+    } else {
+        return "";
+    }
+}
+function addState(state) {
+    additionalStates.push(state);
+}
+function clearStates() {
+    additionalStates = new Array();
+}
+function preQuery(podstate) {
+    $("html, body").animate(
+        {
+            scrollTop: $("#search").offset().top,
+        },
+        500
+    );
+    var q = `https://api.wolframalpha.com/v2/query?${fixedEncodeURI(
+        $("#search").val()
     )}
-        &appid=${appid[Date.now() % appid.length]}
+        &appid=${wolframAPPID[Date.now() % wolframAPPID.length]}
         &input=${(location.hash = fixedEncodeURI(
-          (document.title = $("#search").val())
+            (document.title = $("#search").val())
         ))}
-        &output=json
-        &podstate = Step-by-step+solution
-        &podstate = Step-by-step
-        &podstate = Show+all+steps
-        &podstate = ${podstate?.replaceAll(" ", "+")}
-        &format = image, plaintext, mathml
-        &scantimeout = 30
-        &podtimeout = 30
-        &timeout = 30
-        &parsetimeout = 30
-        &totaltimeout = 30
+        ${output}
+        ${recievePodstates}
+        ${getStates()}
+        ${format}
+        ${timeouts}
         `;
-        q = q.replaceAll("\n", "");
-        q = q.replaceAll("\t", "");
-        q = q.replaceAll(" ", "");
-        //q = fixedEncodeURI(q);
-        console.log(q);
-        query(q, podstate);
+    q = q.replaceAll("\n", "");
+    q = q.replaceAll("\t", "");
+    q = q.replaceAll(" ", "");
+    //q = fixedEncodeURI(q);
+    console.log(getStates());
+    $("#query").html('<p class="qt">Your Query:' + q + "</p>");
+    query(q);
+}
+
+//www.wolframalpha.com/input/?i=
+
+var req;
+/**
+ *
+ * @param {string} queryURL The input to the wolfram api
+ * @param {string} usingState If there was a previous state
+ *  that was used, so we can use that in the state select drop down.
+ */
+async function query(queryURL) {
+    var _result;
+    if (req) {
+        console.log("Aborting Request");
+        req.abort();
     }
-    $("#clearInput").click(function() {
-        $("#search").val("");
+    // AJAX cause why not. And cause it is a CORS workaround
+    req = $.ajax({
+        type: "GET",
+        url: queryURL,
+        success: function (result) {
+            console.log(result);
+        },
+        dataType: "jsonp",
+        async: true,
+        cache: false,
+        headers: {
+            accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+        },
+        beforeSend: function (result) {
+            $("#loading").toggleClass("loadingHidden");
+        },
+        complete: function (result) {
+            $("#loading").toggleClass("loadingHidden");
+        },
+        error: function (xhr, status, error) {
+            console.log(xhr + status + error);
+        },
+    }).done(function (data) {
+        showResults(data);
+        MathJax.Hub.Typeset();
     });
+}
 
-    /**
-     *
-     * @param {string} queryURL The input to the wolfram api
-     * @param {string} usingState If there was a previous state
-     *  that was used, so we can use that in the state select drop down.
-     */
-    async function query(queryURL, usingState) {
-        var _result;
-        // AJAX cause why not. And cause it is a CORS workaround
-        $.ajax({
-            type: "GET",
-            url: queryURL,
-            success: function(result) {
-                console.log(result);
-            },
-            dataType: "jsonp",
-            async: true,
-            cache: false,
-            headers: {
-                accept: "application/json",
-                "Access-Control-Allow-Origin": "*",
-            },
-            beforeSend: function(result) {
-                $("#loading").toggleClass("loadingHidden");
-            },
-            complete: function(result) {
-                $("#loading").toggleClass("loadingHidden");
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr + status + error);
-            },
-        }).done(function(data) {
-            showResults(data);
-            MathJax.Hub.Typeset();
-        });
-    }
-
-    /**
-     *
-     */
-    function showResults(results) {
-        $("#dataInsertion").html("");
-        if (!results.queryresult.success) {
-            alert(
-                "Error" +
+/**
+ *
+ */
+function showResults(results) {
+    $("#dataInsertion").html("");
+    if (!results.queryresult.success) {
+        alert(
+            "Error" +
                 results.queryresult.error.code +
                 " " +
                 results.queryresult.error.msg
-            );
-            $("#loading").toggleClass("loadingHidden");
-        }
-        var pods = results.queryresult.pods;
-        /* console.log(pods = results.queryresult.pods); */
-        /* pods.forEach(pod => {
+        );
+        $("#loading").toggleClass("loadingHidden");
+    }
+    var pods = results.queryresult.pods;
+    /* console.log(pods = results.queryresult.pods); */
+    /* pods.forEach(pod => {
                 console.log(pod.title);
             }); */
-        createSections(pods);
-    }
+    createSections(pods);
+}
 
-    function createInfos(pod) {
-        var _infos = "";
-        var infos = pod.infos;
-        // checks if there is a infos element
-        if (infos) {
-            // checks if the infos element is an traversable array.
-            if (!Array.isArray(infos)) {
-                console.log(infos.text);
+function createInfos(pod) {
+    var _infos = "";
+    var infos = pod.infos;
+    // checks if there is a infos element
+    if (infos) {
+        // checks if the infos element is an traversable array.
+        if (!Array.isArray(infos)) {
+            //console.log(infos.text);
+            if (!Array.isArray(infos.links)) {
+                _infos += `<a href="${infos.links.url}" target="_blank" rel="noopener noreferrer" class = "ia">
+                ${infos.links.text} >>
+                </a>`;
+            }
+            /* else {
+                infos.links.forEach((l) {
+                    _infos += `<a href="${infos.links.url}"class = "ib">
+                    <p class = "ib">${infos.links.text}</p>
+                    </a>`;
+                });
+            } */
+        } else {
+            infos.forEach((info) => {
                 _infos += `<button tabindex = "0" type = "button" class = "ib">
-                <p class = "ib">${infos.text}</p>
-                </button>`;
-            } else {
-                infos.forEach((info) => {
-                    _infos += `<button tabindex = "0" type = "button" class = "ib">
                     <p class = "ib">${info.text}</p>
                     </button>`;
-                });
-            }
+            });
         }
-        return _infos;
     }
+    return _infos;
+}
 
-    function createImages(pod) {
-        console.log(pod.subpods);
-        var i = "";
-        var _subpods = pod.subpods;
-        // $${_i.alt?.replaceAll(" ", "&nbsp;")}$
-        // .replaceAll(" </mtext>", "&nbsp;</mtext>")?.replaceAll("<mtext> ", "<mtext>&nbsp;")
-        _subpods.forEach((im) => {
-            var _i = im.img;
-            i += `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
+/**
+ * TODO: Add subpod states.
+ * @param {*} pod
+ * @returns
+ */
+function createSubElements(pod) {
+    // console.log(pod.subpods);
+    var i = "";
+    var _subpods = pod.subpods;
+    // $${_i.alt?.replaceAll(" ", "&nbsp;")}$
+    // .replaceAll(" </mtext>", "&nbsp;</mtext>")?.replaceAll("<mtext> ", "<mtext>&nbsp;")
+    _subpods.forEach((_sp) => {
+        var _i = _sp.img;
+        i += `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
                 <img src="${_i.src}" alt="${_i.alt}">
                 </img>
-                <p>
-                    ${im.mathml?.replaceAll(
-                      /<mtext>(.+)<\/mtext>/gi,
-                      (match, text) =>
-                        "<mtext>" + text.replace(/ /g, "\u00A0") + "</mtext>"
-                    )}
-                </p>
-            </div>
-            <hr class="s"> `;
-        });
-        return i;
-    }
+                <p>`;
+        if (_sp.hasOwnProperty("mathml")) {
+            // i += _sp.mathml.replaceAll(
+            //     /<mtext>(.+)<\/mtext>/gi,
+            //     (match, text) =>
+            //         "<mtext>" + text.replace(/ /g, "\u00A0") + "</mtext>"
+            // );
+        } else if (_sp.hasOwnProperty("plaintext")) {
+            i += _sp.plaintext;
+        }
+        i += '</p></div><hr class="s">';
+    });
+    return i;
+}
 
-    function createSections(pods) {
-        pods.forEach((pod, i) => {
-            console.log(pod.title);
-            $("#dataInsertion").html(function() {
-                var r = `
+function createStateSelectorMenu(pod_state_states, pod_id) {
+    var menu = `<select id=${pod_id} class="sel" onchange="queryStateMenu(this)">`;
+
+    pod_state_states.forEach((pod_state_states_state, i) => {
+        console.log(i + " " + pod_state_states_state.name);
+        menu += `<option class="selo" value="${pod_state_states_state.input}" >`;
+        menu += pod_state_states_state.name;
+        menu += "</option>";
+    });
+
+    menu += "</select>";
+    return menu;
+}
+
+function createStateSelector(pod) {
+    if (pod.states && Array.isArray(pod.states)) {
+        console.log(pod);
+        var final = '<ul class="sl"> ';
+        var pod_states = pod.states;
+        pod_states.forEach((pod_state) => {
+            var pod_state_states = pod_state.states;
+            // If there are more than 1 states we need a dropdown (for now).
+            if (pod_state_states && Array.isArray(pod_state_states)) {
+                var state_menu = createStateSelectorMenu(
+                    pod_state_states,
+                    pod.id
+                );
+                final += `<li class="sll">${state_menu}</li>`;
+            }
+            if (!Array.isArray(pod_state_states)) {
+                // If there is no array of states we create a button
+                var btn = `<li class="sll">
+                         <button id="${pod_state.input}" class="sllb" type="button" onclick=queryState(this)>
+                             <span class="sllbs">
+                                 ${pod_state.name}
+                             </span>
+                         </button></li>`;
+                final += btn;
+            }
+        });
+        final += "</ul>";
+        return final;
+    }
+    return "No additional states";
+}
+
+function queryState(stateElement) {
+    console.log("State Called: " + stateElement.id);
+    addState(stateElement.id);
+    preQuery();
+    /* stateElement.innerhtml = `<span class="sllbs">
+                                 Loading...
+                             </span>`; */
+}
+
+function queryStateMenu(stateElement) {
+    console.log("State Called: " + stateElement.value + stateElement.value);
+    addState(stateElement.value);
+    preQuery();
+    /* stateElement.innerhtml = `<span class="sllbs">
+                                 Loading...
+                             </span>`; */
+}
+
+/**
+ * Creates sections in the data insertion div, complete with infos, states and images.
+ * !TODO: create image maps; create subpod titles.
+ * @param {JSON} pods
+ */
+function createSections(pods) {
+    pods.forEach((pod, i) => {
+        // console.log(pod.title);
+        $("#dataInsertion").html(function () {
+            var r = `
                     <section class = "s2">
                     <header class = "h1">
-                    <h2 class = "head1">${pod.title}:</h2>
+                    <h2 class = "head1">
+                    ${pod.title}:</h2>
+                    ${createStateSelector(pod)}
                     </header>
                     <div class = "math">
-                        ${createImages(pod)}
+                        ${createSubElements(pod)}
                     </div>
                     <hr class = "s">
                     <div id = "infos" class = "i1">
@@ -235,18 +357,16 @@ $(document).ready(function() {
                     </div>
                     </section>
                     `;
-                return $("#dataInsertion").html() + r;
-            });
+            return $("#dataInsertion").html() + r;
         });
-    }
-
-    $("form").submit(function(event) {
+    });
+}
+$(document).ready(function () {
+    $("#form").submit(async function (event) {
         event.preventDefault();
+        clearStates();
         preQuery();
     });
-    /* $('#form').submit(function (e) {
-          e.preventDefault();
-      }); */
 
     window.onhashchange = (event) => {
         $("#search").focus();
@@ -258,4 +378,39 @@ $(document).ready(function() {
     function showError(xhr, status, error) {
         console.log(error, status, xhr);
     }
+    $("#eowa").click(async function () {
+        window.location.replace(
+            "https://www.wolframalpha.com/input/?i=" +
+                fixedEncodeURI($("#search").val())
+        );
+    });
+    $("#clearInput").click(async function () {
+        $("#search").val("");
+    });
+
+    var changeTooltipPosition = function (event) {
+        var tooltipX = event.pageX - 8;
+        var tooltipY = event.pageY + 8;
+        $("div.tooltip").css({ top: tooltipY, left: tooltipX });
+    };
+
+    /**
+     * For now i am just going to show a yellow box but later it will be a wolfram style tooltip.
+     */
+
+    var showTooltip = function (event) {
+        $("div.tooltip").remove();
+        $('<div class="tooltip">submit</div>').appendTo("body");
+        changeTooltipPosition(event);
+    };
+
+    var hideTooltip = function () {
+        $("div.tooltip").remove();
+    };
+
+    $("span#hint").bind({
+        mousemove: changeTooltipPosition,
+        mouseenter: showTooltip,
+        mouseleave: hideTooltip,
+    });
 });

@@ -28,3 +28,14 @@ TODO:
   - Export SVG
   - Export Markdown
   - Export PNG
+
+- Add support for hiding steps.
+
+- Add support for step by step solutions as in having a next step and previous step button for applicable pods.
+- Implement this type of loading bar https://stackoverflow.com/questions/38311590/animating-linear-gradient-to-create-a-loading-bar
+- Implement support for singular pod state change.
+- Perfect mobile use
+- Add support for drawing equations
+- Add support for Image recognition of math as input. OCR.space
+- Make script more verbose.
+- Make it save previous states.
