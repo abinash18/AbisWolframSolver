@@ -36,6 +36,6 @@ TODO:
 - Implement support for singular pod state change.
 - Perfect mobile use
 - Add support for drawing equations
-- Add support for Image recognition of math as input. OCR.space
+- Add support for Image recognition of math as input. MathPix
 - Make script more verbose.
-- Make it save previous states.
+- Make it save previous states. (Done)
