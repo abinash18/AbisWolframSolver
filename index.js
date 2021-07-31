@@ -120,12 +120,11 @@ function getStates() {
     }
 }
 
-function fixedEncodeURI(string) {
+const fixedEncodeURI = (string) =>
     encodeURIComponent(string).replace(
         /[-_.!~*'()]/g,
         (char) => "%" + char.charCodeAt(0).toString(16)
     );
-}
 
 function addState(state) {
     additionalStates.push(state);
@@ -330,7 +329,7 @@ function createStateSelector(pod) {
         final += "</ul>";
         return final;
     }
-    return "No additional states";
+    return "";
 }
 
 function queryState(stateElement) {
