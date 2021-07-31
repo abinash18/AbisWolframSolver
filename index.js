@@ -74,11 +74,30 @@ const wolframAPPID = [
     "2557YT-52JEY65G9K",
 ];
 
-const fixedEncodeURI = (string) =>
-    encodeURIComponent(string).replace(
-        /[-_.!~*'()]/g,
-        (char) => "%" + char.charCodeAt(0).toString(16)
-    );
+const sectionFooter = `<div class="dd">
+                    <div class="dd2">
+                        <div class="dd3"><button type="button" class="dd3ab"><svg class="_1zLOS" viewBox="0 0 16 16">
+                                    <defs>
+                                        <path
+                                            d="M4.05025253,12 L12,12 L12,10 L14,10 L14,14 L12,14 L2,14 L2,12 L2.05025253,12 L2.05025253,10 L4.05025253,10 L4.05025253,12 Z M9.96428571,2 L9.96428571,6.15384615 L12.75,6.15384615 L7.875,11 L3,6.15384615 L5.78571429,6.15384615 L5.78571429,2 L9.96428571,2 Z"
+                                            id="path-download"></path>
+                                    </defs>
+                                    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="icons/trays/subpod/ic_subpod_download">
+                                            <mask id="mask-2" fill="white">
+                                                <use xlink:href="#path-download"></use>
+                                            </mask>
+                                            <use class="dd3abu" id="Combined-Shape" fill="#F96932"
+                                                xlink:href="#path-download"></use>
+                                        </g>
+                                    </g>
+                                </svg><span><span>Download Page</span></span></button></div><a target="_blank"
+                            rel="noopener noreferrer" href="https://www.wolfram.com/language/index.html.en"
+                            class="dd3a"><span>POWERED BY THE <span class="dd3as"><span>WOLFRAM
+                                        LANGUAGE</span></span></span></a>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>`;
 
 const loadingURL = "./loading.gif";
 const canvas = $("#dataInsertion");
@@ -100,12 +119,22 @@ function getStates() {
         return "";
     }
 }
+
+function fixedEncodeURI(string) {
+    encodeURIComponent(string).replace(
+        /[-_.!~*'()]/g,
+        (char) => "%" + char.charCodeAt(0).toString(16)
+    );
+}
+
 function addState(state) {
     additionalStates.push(state);
 }
+
 function clearStates() {
     additionalStates = new Array();
 }
+
 function preQuery(podstate) {
     $("html, body").animate(
         {
@@ -134,8 +163,6 @@ function preQuery(podstate) {
     $("#query").html('<p class="qt">Your Query:' + q + "</p>");
     query(q);
 }
-
-//www.wolframalpha.com/input/?i=
 
 var req;
 /**
@@ -199,6 +226,7 @@ function showResults(results) {
                 console.log(pod.title);
             }); */
     createSections(pods);
+    $("#dataInsertion").html($("#dataInsertion").html() + sectionFooter);
 }
 
 function createInfos(pod) {
@@ -211,25 +239,31 @@ function createInfos(pod) {
             //console.log(infos.text);
             if (!Array.isArray(infos.links)) {
                 _infos += `<a href="${infos.links.url}" target="_blank" rel="noopener noreferrer" class = "ia">
-                ${infos.links.text} >>
+                ${infos.links.text} »
                 </a>`;
             }
-            /* else {
-                infos.links.forEach((l) {
-                    _infos += `<a href="${infos.links.url}"class = "ib">
-                    <p class = "ib">${infos.links.text}</p>
-                    </a>`;
-                });
-            } */
         } else {
             infos.forEach((info) => {
-                _infos += `<button tabindex = "0" type = "button" class = "ib">
-                    <p class = "ib">${info.text}</p>
-                    </button>`;
+                _infos += `<div>
+                 <button tabindex="0" type="button" class="ib" onclick="toggleInfoDropDown(this)">
+                 <img src="${info.img.src}" alt="${info.img.alt}" class="ibi" style="width: ${info.img.width};height: ${info.img.height};">
+                 </button>
+                 <div class="ibid d" id="dd">`;
+                info.links.forEach((link) => {
+                    _infos += `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="ibida">
+                 ${link.text}
+                 </a>`;
+                });
+                _infos += `</div></div>`;
             });
         }
     }
     return _infos;
+}
+
+function toggleInfoDropDown(element) {
+    console.log(element);
+    $(element).parent().find("#dd").toggleClass("d");
 }
 
 /**
@@ -238,11 +272,8 @@ function createInfos(pod) {
  * @returns
  */
 function createSubElements(pod) {
-    // console.log(pod.subpods);
     var i = "";
     var _subpods = pod.subpods;
-    // $${_i.alt?.replaceAll(" ", "&nbsp;")}$
-    // .replaceAll(" </mtext>", "&nbsp;</mtext>")?.replaceAll("<mtext> ", "<mtext>&nbsp;")
     _subpods.forEach((_sp) => {
         var _i = _sp.img;
         i += `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
@@ -250,11 +281,6 @@ function createSubElements(pod) {
                 </img>
                 <p>`;
         if (_sp.hasOwnProperty("mathml")) {
-            // i += _sp.mathml.replaceAll(
-            //     /<mtext>(.+)<\/mtext>/gi,
-            //     (match, text) =>
-            //         "<mtext>" + text.replace(/ /g, "\u00A0") + "</mtext>"
-            // );
         } else if (_sp.hasOwnProperty("plaintext")) {
             i += _sp.plaintext;
         }
@@ -265,14 +291,12 @@ function createSubElements(pod) {
 
 function createStateSelectorMenu(pod_state_states, pod_id) {
     var menu = `<select id=${pod_id} class="sel" onchange="queryStateMenu(this)">`;
-
     pod_state_states.forEach((pod_state_states_state, i) => {
         console.log(i + " " + pod_state_states_state.name);
         menu += `<option class="selo" value="${pod_state_states_state.input}" >`;
         menu += pod_state_states_state.name;
         menu += "</option>";
     });
-
     menu += "</select>";
     return menu;
 }
@@ -313,18 +337,12 @@ function queryState(stateElement) {
     console.log("State Called: " + stateElement.id);
     addState(stateElement.id);
     preQuery();
-    /* stateElement.innerhtml = `<span class="sllbs">
-                                 Loading...
-                             </span>`; */
 }
 
 function queryStateMenu(stateElement) {
     console.log("State Called: " + stateElement.value + stateElement.value);
     addState(stateElement.value);
     preQuery();
-    /* stateElement.innerhtml = `<span class="sllbs">
-                                 Loading...
-                             </span>`; */
 }
 
 /**
@@ -356,11 +374,13 @@ function createSections(pods) {
                     </div>
                     </div>
                     </section>
+                    
                     `;
             return $("#dataInsertion").html() + r;
         });
     });
 }
+
 $(document).ready(function () {
     $("#form").submit(async function (event) {
         event.preventDefault();
@@ -386,31 +406,6 @@ $(document).ready(function () {
     });
     $("#clearInput").click(async function () {
         $("#search").val("");
-    });
-
-    var changeTooltipPosition = function (event) {
-        var tooltipX = event.pageX - 8;
-        var tooltipY = event.pageY + 8;
-        $("div.tooltip").css({ top: tooltipY, left: tooltipX });
-    };
-
-    /**
-     * For now i am just going to show a yellow box but later it will be a wolfram style tooltip.
-     */
-
-    var showTooltip = function (event) {
-        $("div.tooltip").remove();
-        $('<div class="tooltip">submit</div>').appendTo("body");
-        changeTooltipPosition(event);
-    };
-
-    var hideTooltip = function () {
-        $("div.tooltip").remove();
-    };
-
-    $("span#hint").bind({
-        mousemove: changeTooltipPosition,
-        mouseenter: showTooltip,
-        mouseleave: hideTooltip,
+        clearStates();
     });
 });

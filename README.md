@@ -39,3 +39,4 @@ TODO:
 - Add support for Image recognition of math as input. MathPix
 - Make script more verbose.
 - Make it save previous states. (Done)
+- Implement Embeded Latex Equation Editor.
