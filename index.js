@@ -247,7 +247,7 @@ function createInfos(pod) {
                  <button tabindex="0" type="button" class="ib" onclick="toggleInfoDropDown(this)">
                  <img src="${info.img.src}" alt="${info.img.alt}" class="ibi" style="width: ${info.img.width};height: ${info.img.height};">
                  </button>
-                 <div class="ibid d" id="dd">`;
+                 <div class="ibid dropdown" style="display:none">`;
                 info.links.forEach((link) => {
                     _infos += `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="ibida">
                  ${link.text}
@@ -261,8 +261,7 @@ function createInfos(pod) {
 }
 
 function toggleInfoDropDown(element) {
-    console.log(element);
-    $(element).parent().find("#dd").toggleClass("d");
+    $(element).parent().find(".dropdown").toggle();
 }
 
 /**
