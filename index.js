@@ -195,6 +195,14 @@ async function query(queryURL) {
         },
         complete: function (result) {
             $("#loading").toggleClass("loadingHidden");
+            $(".selectable").on({
+                mouseenter: async function () {
+                    $(this).append(showDropDownMenu(this));
+                },
+                mouseleave: async function () {
+                    $(".smu").remove();
+                },
+            });
         },
         error: function (xhr, status, error) {
             console.log(xhr + status + error);
@@ -264,29 +272,6 @@ function toggleInfoDropDown(element) {
     $(element).parent().find(".dropdown").toggle();
 }
 
-/**
- * TODO: Add subpod states.
- * @param {*} pod
- * @returns
- */
-function createSubElements(pod) {
-    var i = "";
-    var _subpods = pod.subpods;
-    _subpods.forEach((_sp) => {
-        var _i = _sp.img;
-        i += `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
-                <img src="${_i.src}" alt="${_i.alt}">
-                </img>
-                <p>`;
-        if (_sp.hasOwnProperty("mathml")) {
-        } else if (_sp.hasOwnProperty("plaintext")) {
-            i += _sp.plaintext;
-        }
-        i += '</p></div><hr class="s">';
-    });
-    return i;
-}
-
 function createStateSelectorMenu(pod_state_states, pod_id) {
     var menu = `<select id=${pod_id} class="sel" onchange="queryStateMenu(this)">`;
     pod_state_states.forEach((pod_state_states_state, i) => {
@@ -343,6 +328,58 @@ function queryStateMenu(stateElement) {
     preQuery();
 }
 
+function createCopyDropDown(element) {}
+
+function showDropDownMenu(element) {
+    var menu = '<ul class="smu">';
+
+    menu += `<li tabindex="-1" aria-describedby="tooltip195" class="smul">
+    <button type="button" class="smulb">
+        <i class="smulbi fa far fa-copy"></i>
+            <span class="smulbs">
+                <span>
+                    Download
+                </span>
+            </span>
+    </button>
+    </li>`;
+    menu += "</ul>";
+    return menu;
+}
+/**
+ * TODO: Add subpod states.
+ * @param {*} pod
+ * @returns
+ */
+function createSubPods(pod) {
+    var sp = '<hr class="s">';
+    var _subpods = pod.subpods;
+    for (let i = 1; i < _subpods.length; i++) {
+        const _sp = _subpods[i];
+        var _i = _sp.img;
+        sp += `
+        <section class="s2 selectable">
+        <div class="math">
+        <div class="_c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
+        <img class="_c4i"src="${_i.src}" alt="${_i.alt}"></img>
+        </div>
+        </div>
+        </section>
+        `;
+    }
+    return sp;
+}
+
+function createSubPod(pod) {
+    var _subPods = pod.subpods;
+    var _sp = '<div class = "math">';
+    var _i = _subPods[0].img;
+    _sp += `<div class="c4" max-width: ${_i.width}px; max-height: ${_i.height}px;>
+                <img src="${_i.src}" alt="${_i.alt}">
+                </img></div></div>`;
+    return _sp;
+}
+
 /**
  * Creates sections in the data insertion div, complete with infos, states and images.
  * !TODO: create image maps; create subpod titles.
@@ -353,26 +390,22 @@ function createSections(pods) {
         // console.log(pod.title);
         $("#dataInsertion").html(function () {
             var r = `
-                    <section class = "s2">
+                    <section class = "s2 selectable">
                     <header class = "h1">
                     <h2 class = "head1">
-                    ${pod.title}:</h2>
-                    ${createStateSelector(pod)}
+                        ${pod.title}:</h2>
+                        ${createStateSelector(pod)}
                     </header>
-                    <div class = "math">
-                        ${createSubElements(pod)}
-                    </div>
-                    <hr class = "s">
-                    <div id = "infos" class = "i1">
-                    <div id = "info1" class = "i2">
+                        ${createSubPod(pod)}
+                    <div id = "i1" class = "i1">
+                    <div id = "i2" class = "i2">
                         ${createInfos(pod)}
                     <div id = "infosWithMenu">
-                        
                     </div>
                     </div>
                     </div>
                     </section>
-                    
+                    ${pod.subpods.length > 1 ? createSubPods(pod) : ""}
                     `;
             return $("#dataInsertion").html() + r;
         });
@@ -406,4 +439,6 @@ $(document).ready(function () {
         $("#search").val("");
         clearStates();
     });
+
+    $(".selectable").hover(function () {});
 });
