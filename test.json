@@ -1,0 +1,369 @@
+{
+    "queryresult": {
+        "success": true,
+        "error": false,
+        "numpods": 8,
+        "datatypes": "",
+        "timedout": "",
+        "timedoutpods": "",
+        "timing": 7.2860000000000005,
+        "parsetiming": 1.609,
+        "parsetimedout": false,
+        "recalculate": "",
+        "id": "MSP174114bc9hf1fg8f960100000fb78h00gh1hb9gc",
+        "host": "https://www3.wolframalpha.com",
+        "server": "29",
+        "related": "https://www3.wolframalpha.com/api/v1/relatedQueries.jsp?id=MSPa174214bc9hf1fg8f960100004326534bia1g8f358790432925714425249",
+        "version": "2.6",
+        "inputstring": "t^2 y'(t) + 2t y(t) = t^4 y(t)^2 + 4",
+        "pods": [
+            {
+                "title": "Input",
+                "scanner": "Identity",
+                "id": "Input",
+                "position": 100,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174314bc9hf1fg8f960100004a4f4a92a4599g76?MSPStoreType=image/gif&s=29",
+                            "alt": "t^2 y'(t) + 2 t y(t) = t^4 y(t)^2 + 4",
+                            "title": "t^2 y'(t) + 2 t y(t) = t^4 y(t)^2 + 4",
+                            "width": 203,
+                            "height": 21,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "t^2 y'(t) + 2 t y(t) = t^4 y(t)^2 + 4",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mrow>\n   <mrow>\n    <msup>\n     <mi>t</mi>\n     <mn>2</mn>\n    </msup>\n    <mo>&#8290;</mo>\n    <mrow>\n     <msup>\n      <mi>y</mi>\n      <mo>,</mo>\n     </msup>\n     <mo>(</mo>\n     <mi>t</mi>\n     <mo>)</mo>\n    </mrow>\n   </mrow>\n   <mo>+</mo>\n   <mrow>\n    <mn>2</mn>\n    <mo>&#8290;</mo>\n    <mi>t</mi>\n    <mo>&#8290;</mo>\n    <mrow>\n     <mi>y</mi>\n     <mo>&#8289;</mo>\n     <mo>(</mo>\n     <mi>t</mi>\n     <mo>)</mo>\n    </mrow>\n   </mrow>\n  </mrow>\n  <mo>=</mo>\n  <mrow>\n   <mrow>\n    <msup>\n     <mi>t</mi>\n     <mn>4</mn>\n    </msup>\n    <mo>&#8290;</mo>\n    <msup>\n     <mrow>\n      <mi>y</mi>\n      <mo>&#8289;</mo>\n      <mo>(</mo>\n      <mi>t</mi>\n      <mo>)</mo>\n     </mrow>\n     <mn>2</mn>\n    </msup>\n   </mrow>\n   <mo>+</mo>\n   <mn>4</mn>\n  </mrow>\n </mrow>\n</math>"
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                }
+            },
+            {
+                "title": "Riccati's equation",
+                "scanner": "ODE",
+                "id": "RiccatisEquation",
+                "position": 200,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174414bc9hf1fg8f9601000022ce680h3b4g3d13?MSPStoreType=image/gif&s=29",
+                            "alt": "y'(t) = t^2 y(t)^2 - (2 y(t))/t + 4/t^2",
+                            "title": "y'(t) = t^2 y(t)^2 - (2 y(t))/t + 4/t^2",
+                            "width": 191,
+                            "height": 40,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "y'(t) = t^2 y(t)^2 - (2 y(t))/t + 4/t^2",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mrow>\n   <msup>\n    <mi>y</mi>\n    <mo>,</mo>\n   </msup>\n   <mo>(</mo>\n   <mi>t</mi>\n   <mo>)</mo>\n  </mrow>\n  <mo>=</mo>\n  <mrow>\n   <mrow>\n    <msup>\n     <mi>t</mi>\n     <mn>2</mn>\n    </msup>\n    <mo>&#8290;</mo>\n    <msup>\n     <mrow>\n      <mi>y</mi>\n      <mo>&#8289;</mo>\n      <mo>(</mo>\n      <mi>t</mi>\n      <mo>)</mo>\n     </mrow>\n     <mn>2</mn>\n    </msup>\n   </mrow>\n   <mo>-</mo>\n   <mfrac>\n    <mrow>\n     <mn>2</mn>\n     <mo>&#8290;</mo>\n     <mrow>\n      <mi>y</mi>\n      <mo>&#8289;</mo>\n      <mo>(</mo>\n      <mi>t</mi>\n      <mo>)</mo>\n     </mrow>\n    </mrow>\n    <mi>t</mi>\n   </mfrac>\n   <mo>+</mo>\n   <mfrac>\n    <mn>4</mn>\n    <msup>\n     <mi>t</mi>\n     <mn>2</mn>\n    </msup>\n   </mfrac>\n  </mrow>\n </mrow>\n</math>"
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                },
+                "infos": {
+                    "links": {
+                        "url": "http://mathworld.wolfram.com/RiccatiDifferentialEquation.html",
+                        "text": "Riccati's equation"
+                    }
+                }
+            },
+            {
+                "title": "ODE classification",
+                "scanner": "ODE",
+                "id": "ODEClassification",
+                "position": 300,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174514bc9hf1fg8f96010000455i2334h76ec3g4?MSPStoreType=image/gif&s=29",
+                            "alt": "first-order nonlinear ordinary differential equation",
+                            "title": "first-order nonlinear ordinary differential equation",
+                            "width": 333,
+                            "height": 19,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "first-order nonlinear ordinary differential equation",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mtext>first-order nonlinear ordinary differential equation</mtext>\n</math>"
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                }
+            },
+            {
+                "title": "Alternate forms",
+                "scanner": "Simplification",
+                "id": "AlternateForm",
+                "position": 400,
+                "error": false,
+                "numsubpods": 2,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174614bc9hf1fg8f960100004c6ah92i9a7f8826?MSPStoreType=image/gif&s=29",
+                            "alt": "t^2 y'(t) = t^4 y(t)^2 - 2 t y(t) + 4",
+                            "title": "t^2 y'(t) = t^4 y(t)^2 - 2 t y(t) + 4",
+                            "width": 203,
+                            "height": 21,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "t^2 y'(t) = t^4 y(t)^2 - 2 t y(t) + 4",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mrow>\n   <msup>\n    <mi>t</mi>\n    <mn>2</mn>\n   </msup>\n   <mo>&#8290;</mo>\n   <mrow>\n    <msup>\n     <mi>y</mi>\n     <mo>,</mo>\n    </msup>\n    <mo>(</mo>\n    <mi>t</mi>\n    <mo>)</mo>\n   </mrow>\n  </mrow>\n  <mo>=</mo>\n  <mrow>\n   <mrow>\n    <msup>\n     <mi>t</mi>\n     <mn>4</mn>\n    </msup>\n    <mo>&#8290;</mo>\n    <msup>\n     <mrow>\n      <mi>y</mi>\n      <mo>&#8289;</mo>\n      <mo>(</mo>\n      <mi>t</mi>\n      <mo>)</mo>\n     </mrow>\n     <mn>2</mn>\n    </msup>\n   </mrow>\n   <mo>-</mo>\n   <mrow>\n    <mn>2</mn>\n    <mo>&#8290;</mo>\n    <mi>t</mi>\n    <mo>&#8290;</mo>\n    <mrow>\n     <mi>y</mi>\n     <mo>&#8289;</mo>\n     <mo>(</mo>\n     <mi>t</mi>\n     <mo>)</mo>\n    </mrow>\n   </mrow>\n   <mo>+</mo>\n   <mn>4</mn>\n  </mrow>\n </mrow>\n</math>"
+                    },
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174714bc9hf1fg8f960100002eg5ebb814e8hhh4?MSPStoreType=image/gif&s=29",
+                            "alt": "t (t y'(t) + 2 y(t)) = t^4 y(t)^2 + 4",
+                            "title": "t (t y'(t) + 2 y(t)) = t^4 y(t)^2 + 4",
+                            "width": 206,
+                            "height": 24,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "t (t y'(t) + 2 y(t)) = t^4 y(t)^2 + 4",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mrow>\n   <mi>t</mi>\n   <mo>&#8290;</mo>\n   <mrow>\n    <mo>(</mo>\n    <mrow>\n     <mrow>\n      <mi>t</mi>\n      <mo>&#8290;</mo>\n      <mrow>\n       <msup>\n        <mi>y</mi>\n        <mo>,</mo>\n       </msup>\n       <mo>(</mo>\n       <mi>t</mi>\n       <mo>)</mo>\n      </mrow>\n     </mrow>\n     <mo>+</mo>\n     <mrow>\n      <mn>2</mn>\n      <mo>&#8290;</mo>\n      <mrow>\n       <mi>y</mi>\n       <mo>&#8289;</mo>\n       <mo>(</mo>\n       <mi>t</mi>\n       <mo>)</mo>\n      </mrow>\n     </mrow>\n    </mrow>\n    <mo>)</mo>\n   </mrow>\n  </mrow>\n  <mo>=</mo>\n  <mrow>\n   <mrow>\n    <msup>\n     <mi>t</mi>\n     <mn>4</mn>\n    </msup>\n    <mo>&#8290;</mo>\n    <msup>\n     <mrow>\n      <mi>y</mi>\n      <mo>&#8289;</mo>\n      <mo>(</mo>\n      <mi>t</mi>\n      <mo>)</mo>\n     </mrow>\n     <mn>2</mn>\n    </msup>\n   </mrow>\n   <mo>+</mo>\n   <mn>4</mn>\n  </mrow>\n </mrow>\n</math>"
+                    }
+                ],
+                "expressiontypes": [
+                    {
+                        "name": "Default"
+                    },
+                    {
+                        "name": "Default"
+                    }
+                ]
+            },
+            {
+                "title": "Differential equation solutions",
+                "scanner": "ODE",
+                "id": "Solution",
+                "position": 500,
+                "error": false,
+                "numsubpods": 2,
+                "primary": true,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174814bc9hf1fg8f9601000066bad74ac8b6a48g?MSPStoreType=image/gif&s=29",
+                            "alt": "y(t) = (2 tan(c_1 + 2 t))/t^2",
+                            "title": "y(t) = (2 tan(c_1 + 2 t))/t^2",
+                            "width": 140,
+                            "height": 40,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "y(t) = (2 tan(c_1 + 2 t))/t^2",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mrow>\n   <mi>y</mi>\n   <mo>&#8289;</mo>\n   <mo>(</mo>\n   <mi>t</mi>\n   <mo>)</mo>\n  </mrow>\n  <mo>=</mo>\n  <mfrac>\n   <mrow>\n    <mn>2</mn>\n    <mo>&#8290;</mo>\n    <mrow>\n     <mi>tan</mi>\n     <mo>&#8289;</mo>\n     <mo>(</mo>\n     <mrow>\n      <msub>\n       <mi>c</mi>\n       <mn>1</mn>\n      </msub>\n      <mo>+</mo>\n      <mrow>\n       <mn>2</mn>\n       <mo>&#8290;</mo>\n       <mi>t</mi>\n      </mrow>\n     </mrow>\n     <mo>)</mo>\n    </mrow>\n   </mrow>\n   <msup>\n    <mi>t</mi>\n    <mn>2</mn>\n   </msup>\n  </mfrac>\n </mrow>\n</math>"
+                    },
+                    {
+                        "title": "Possible intermediate steps",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP174914bc9hf1fg8f9601000010b64ad7dgi892ca?MSPStoreType=image/gif&s=29",
+                            "alt": "Solve Chini's equation t^2 ( dy(t))/( dt) + 2 t y(t) = t^4 y(t)^2 + 4:\nSubtract 2 t y(t) from both sides:\nt^2 ( dy(t))/( dt) = t^4 y(t)^2 - 2 t y(t) + 4\nDivide both sides by t^2:\n( dy(t))/( dt) = 4/t^2 + t^2 y(t)^2 - (2 y(t))/t\nFor the Chini equation ( dy(t))/( dt) = y(t)^n f(t) + y(t) g(t) + h(t), when α = f(t)^(-n - 1) h(t)^(-2 n + 1) ((n f(t) g(t) + f'(t)) h(t) - f(t) h'(t))^n is independent of t, the substitution y(t) = (h(t)/f(t))^(1/n) v(t) leads to a separable equation.\nIn this case n = 2, f(t) = t^2, g(t) = -2/t, h(t) = 4/t^2 and α = 0.\nSince α = 0 is independent of t, substitute y(t) = v(t)/t^2 and ( dy(t))/( dt) = (t ( dv(t))/( dt) - 2 v(t))/t^3:\n(t ( dv(t))/( dt) - 2 v(t))/t^3 = 4/t^2 + v(t)^2/t^2 - (2 v(t))/t^3\nSolve for ( dv(t))/( dt):\n( dv(t))/( dt) = v(t)^2 + 4\nDivide both sides by v(t)^2 + 4:\n(( dv(t))/( dt))/(v(t)^2 + 4) = 1\nIntegrate both sides with respect to t:\n integral(( dv(t))/( dt))/(v(t)^2 + 4) dt = integral1 dt\nEvaluate the integrals:\n1/2 tan^(-1)(v(t)/2) = t + c_1, where c_1 is an arbitrary constant.\nSolve for v(t):\nv(t) = 2 tan(2 (t + c_1))\nSubstitute back for y(t) = v(t)/t^2:\nAnswer: | \n | y(t) = (2 tan(2 (t + c_1)))/t^2",
+                            "title": "Solve Chini's equation t^2 ( dy(t))/( dt) + 2 t y(t) = t^4 y(t)^2 + 4:\nSubtract 2 t y(t) from both sides:\nt^2 ( dy(t))/( dt) = t^4 y(t)^2 - 2 t y(t) + 4\nDivide both sides by t^2:\n( dy(t))/( dt) = 4/t^2 + t^2 y(t)^2 - (2 y(t))/t\nFor the Chini equation ( dy(t))/( dt) = y(t)^n f(t) + y(t) g(t) + h(t), when α = f(t)^(-n - 1) h(t)^(-2 n + 1) ((n f(t) g(t) + f'(t)) h(t) - f(t) h'(t))^n is independent of t, the substitution y(t) = (h(t)/f(t))^(1/n) v(t) leads to a separable equation.\nIn this case n = 2, f(t) = t^2, g(t) = -2/t, h(t) = 4/t^2 and α = 0.\nSince α = 0 is independent of t, substitute y(t) = v(t)/t^2 and ( dy(t))/( dt) = (t ( dv(t))/( dt) - 2 v(t))/t^3:\n(t ( dv(t))/( dt) - 2 v(t))/t^3 = 4/t^2 + v(t)^2/t^2 - (2 v(t))/t^3\nSolve for ( dv(t))/( dt):\n( dv(t))/( dt) = v(t)^2 + 4\nDivide both sides by v(t)^2 + 4:\n(( dv(t))/( dt))/(v(t)^2 + 4) = 1\nIntegrate both sides with respect to t:\n integral(( dv(t))/( dt))/(v(t)^2 + 4) dt = integral1 dt\nEvaluate the integrals:\n1/2 tan^(-1)(v(t)/2) = t + c_1, where c_1 is an arbitrary constant.\nSolve for v(t):\nv(t) = 2 tan(2 (t + c_1))\nSubstitute back for y(t) = v(t)/t^2:\nAnswer: | \n | y(t) = (2 tan(2 (t + c_1)))/t^2",
+                            "width": 546,
+                            "height": 1305,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "Solve Chini's equation t^2 ( dy(t))/( dt) + 2 t y(t) = t^4 y(t)^2 + 4:\nSubtract 2 t y(t) from both sides:\nt^2 ( dy(t))/( dt) = t^4 y(t)^2 - 2 t y(t) + 4\nDivide both sides by t^2:\n( dy(t))/( dt) = 4/t^2 + t^2 y(t)^2 - (2 y(t))/t\nFor the Chini equation ( dy(t))/( dt) = y(t)^n f(t) + y(t) g(t) + h(t), when α = f(t)^(-n - 1) h(t)^(-2 n + 1) ((n f(t) g(t) + f'(t)) h(t) - f(t) h'(t))^n is independent of t, the substitution y(t) = (h(t)/f(t))^(1/n) v(t) leads to a separable equation.\nIn this case n = 2, f(t) = t^2, g(t) = -2/t, h(t) = 4/t^2 and α = 0.\nSince α = 0 is independent of t, substitute y(t) = v(t)/t^2 and ( dy(t))/( dt) = (t ( dv(t))/( dt) - 2 v(t))/t^3:\n(t ( dv(t))/( dt) - 2 v(t))/t^3 = 4/t^2 + v(t)^2/t^2 - (2 v(t))/t^3\nSolve for ( dv(t))/( dt):\n( dv(t))/( dt) = v(t)^2 + 4\nDivide both sides by v(t)^2 + 4:\n(( dv(t))/( dt))/(v(t)^2 + 4) = 1\nIntegrate both sides with respect to t:\n integral(( dv(t))/( dt))/(v(t)^2 + 4) dt = integral1 dt\nEvaluate the integrals:\n1/2 tan^(-1)(v(t)/2) = t + c_1, where c_1 is an arbitrary constant.\nSolve for v(t):\nv(t) = 2 tan(2 (t + c_1))\nSubstitute back for y(t) = v(t)/t^2:\nAnswer: | \n | y(t) = (2 tan(2 (t + c_1)))/t^2",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mtable displaystyle='true'>\n  <mtr>\n   <mtd>\n    <mrow>\n     <mrow>\n      <mtext>Solve Chini&apos;s equation </mtext>\n      <mrow>\n       <mrow>\n        <mrow>\n         <mrow>\n          <mrow>\n           <msup>\n            <mi>t</mi>\n            <mn>2</mn>\n           </msup>\n           <mo>&#8290;</mo>\n           <mfrac>\n            <mrow>\n             <mi>d</mi>\n             <mo>&#8290;</mo>\n             <mrow>\n              <mi>y</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n            </mrow>\n            <mrow>\n             <mi>d</mi>\n             <mo>&#8290;</mo>\n             <mi>t</mi>\n            </mrow>\n           </mfrac>\n          </mrow>\n          <mo>+</mo>\n          <mrow>\n           <mn>2</mn>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n         </mrow>\n         <mo>=</mo>\n         <mrow>\n          <mrow>\n           <msup>\n            <mi>t</mi>\n            <mn>4</mn>\n           </msup>\n           <mo>&#8290;</mo>\n           <msup>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n          </mrow>\n          <mo>+</mo>\n          <mn>4</mn>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mrow>\n     </mrow>\n     <mo>:</mo>\n    </mrow>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>Subtract </mtext>\n        <mrow>\n         <mrow>\n          <mn>2</mn>\n          <mo>&#8290;</mo>\n          <mi>t</mi>\n          <mo>&#8290;</mo>\n          <mrow>\n           <mi>y</mi>\n           <mo>&#8289;</mo>\n           <mo>(</mo>\n           <mi>t</mi>\n           <mo>)</mo>\n          </mrow>\n         </mrow>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>from </mtext>\n        <mtext>both </mtext>\n        <mtext>sides:</mtext>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mrow>\n          <msup>\n           <mi>t</mi>\n           <mn>2</mn>\n          </msup>\n          <mo>&#8290;</mo>\n          <mfrac>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mi>t</mi>\n           </mrow>\n          </mfrac>\n         </mrow>\n         <mo>=</mo>\n         <mrow>\n          <mrow>\n           <msup>\n            <mi>t</mi>\n            <mn>4</mn>\n           </msup>\n           <mo>&#8290;</mo>\n           <msup>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n          </mrow>\n          <mo>-</mo>\n          <mrow>\n           <mn>2</mn>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n          <mo>+</mo>\n          <mn>4</mn>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mtext>Divide </mtext>\n         <mtext>both </mtext>\n         <mtext>sides </mtext>\n         <mtext>by </mtext>\n         <mrow>\n          <msup>\n           <mi>t</mi>\n           <mn>2</mn>\n          </msup>\n         </mrow>\n        </mrow>\n        <mo>:</mo>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mfrac>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n          </mrow>\n         </mfrac>\n         <mo>=</mo>\n         <mrow>\n          <mfrac>\n           <mn>4</mn>\n           <msup>\n            <mi>t</mi>\n            <mn>2</mn>\n           </msup>\n          </mfrac>\n          <mo>+</mo>\n          <mrow>\n           <msup>\n            <mi>t</mi>\n            <mn>2</mn>\n           </msup>\n           <mo>&#8290;</mo>\n           <msup>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n          </mrow>\n          <mo>-</mo>\n          <mfrac>\n           <mrow>\n            <mn>2</mn>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mi>t</mi>\n          </mfrac>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>For </mtext>\n        <mtext>the </mtext>\n        <mrow>\n         <mi>Chini</mi>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>equation </mtext>\n        <mrow>\n         <mrow>\n          <mfrac>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mi>t</mi>\n           </mrow>\n          </mfrac>\n          <mo>=</mo>\n          <mrow>\n           <mrow>\n            <msup>\n             <mrow>\n              <mi>y</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n             <mi>n</mi>\n            </msup>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>f</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mo>+</mo>\n           <mrow>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>g</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mo>+</mo>\n           <mrow>\n            <mi>h</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n         </mrow>\n         <mo>,</mo>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>when </mtext>\n        <mrow>\n         <mrow>\n          <mi>&#945;</mi>\n          <mo>=</mo>\n          <mrow>\n           <msup>\n            <mrow>\n             <mi>f</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mrow>\n             <mrow>\n              <mo>-</mo>\n              <mi>n</mi>\n             </mrow>\n             <mo>-</mo>\n             <mn>1</mn>\n            </mrow>\n           </msup>\n           <mo>&#8290;</mo>\n           <msup>\n            <mrow>\n             <mi>h</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mrow>\n             <mrow>\n              <mo>-</mo>\n              <mn>2</mn>\n              <mo>&#8290;</mo>\n              <mi>n</mi>\n             </mrow>\n             <mo>+</mo>\n             <mn>1</mn>\n            </mrow>\n           </msup>\n           <mo>&#8290;</mo>\n           <msup>\n            <mrow>\n             <mo>(</mo>\n             <mrow>\n              <mrow>\n               <mrow>\n                <mo>(</mo>\n                <mrow>\n                 <mrow>\n                  <mi>n</mi>\n                  <mo>&#8290;</mo>\n                  <mrow>\n                   <mi>f</mi>\n                   <mo>&#8289;</mo>\n                   <mo>(</mo>\n                   <mi>t</mi>\n                   <mo>)</mo>\n                  </mrow>\n                  <mo>&#8290;</mo>\n                  <mrow>\n                   <mi>g</mi>\n                   <mo>&#8289;</mo>\n                   <mo>(</mo>\n                   <mi>t</mi>\n                   <mo>)</mo>\n                  </mrow>\n                 </mrow>\n                 <mo>+</mo>\n                 <mrow>\n                  <msup>\n                   <mi>f</mi>\n                   <mo>,</mo>\n                  </msup>\n                  <mo>(</mo>\n                  <mi>t</mi>\n                  <mo>)</mo>\n                 </mrow>\n                </mrow>\n                <mo>)</mo>\n               </mrow>\n               <mo>&#8290;</mo>\n               <mrow>\n                <mi>h</mi>\n                <mo>&#8289;</mo>\n                <mo>(</mo>\n                <mi>t</mi>\n                <mo>)</mo>\n               </mrow>\n              </mrow>\n              <mo>-</mo>\n              <mrow>\n               <mrow>\n                <mi>f</mi>\n                <mo>&#8289;</mo>\n                <mo>(</mo>\n                <mi>t</mi>\n                <mo>)</mo>\n               </mrow>\n               <mo>&#8290;</mo>\n               <mrow>\n                <msup>\n                 <mi>h</mi>\n                 <mo>,</mo>\n                </msup>\n                <mo>(</mo>\n                <mi>t</mi>\n                <mo>)</mo>\n               </mrow>\n              </mrow>\n             </mrow>\n             <mo>)</mo>\n            </mrow>\n            <mi>n</mi>\n           </msup>\n          </mrow>\n         </mrow>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>is </mtext>\n        <mtext>independent </mtext>\n        <mtext>of </mtext>\n        <mrow>\n         <mi>t</mi>\n         <mo>,</mo>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>the </mtext>\n        <mtext>substitution </mtext>\n        <mrow>\n         <mrow>\n          <mrow>\n           <mi>y</mi>\n           <mo>&#8289;</mo>\n           <mo>(</mo>\n           <mi>t</mi>\n           <mo>)</mo>\n          </mrow>\n          <mo>=</mo>\n          <mrow>\n           <msup>\n            <mrow>\n             <mo>(</mo>\n             <mfrac>\n              <mrow>\n               <mi>h</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n              <mrow>\n               <mi>f</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n             </mfrac>\n             <mo>)</mo>\n            </mrow>\n            <mrow>\n             <mrow>\n              <mn>1</mn>\n              <mo>/</mo>\n              <mi>n</mi>\n             </mrow>\n            </mrow>\n           </msup>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>v</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n         </mrow>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>leads </mtext>\n        <mtext>to </mtext>\n        <mtext>a </mtext>\n        <mtext>separable </mtext>\n        <mtext>equation.</mtext>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mtext>In this case </mtext>\n         <mrow>\n          <mrow>\n           <mrow>\n            <mrow>\n             <mi>n</mi>\n             <mo>=</mo>\n             <mn>2</mn>\n            </mrow>\n            <mo>,</mo>\n            <mrow>\n             <mrow>\n              <mi>f</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n             <mo>=</mo>\n             <msup>\n              <mi>t</mi>\n              <mn>2</mn>\n             </msup>\n            </mrow>\n            <mo>,</mo>\n            <mrow>\n             <mrow>\n              <mi>g</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n             <mo>=</mo>\n             <mrow>\n              <mo>-</mo>\n              <mfrac>\n               <mn>2</mn>\n               <mi>t</mi>\n              </mfrac>\n             </mrow>\n            </mrow>\n            <mo>,</mo>\n            <mrow>\n             <mrow>\n              <mi>h</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n             <mo>=</mo>\n             <mfrac>\n              <mn>4</mn>\n              <msup>\n               <mi>t</mi>\n               <mn>2</mn>\n              </msup>\n             </mfrac>\n            </mrow>\n           </mrow>\n           <mtext> </mtext>\n          </mrow>\n          <mtext>and </mtext>\n          <mrow>\n           <mi>&#945;</mi>\n           <mo>=</mo>\n           <mn>0</mn>\n          </mrow>\n         </mrow>\n         <mo>.</mo>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mtext>Since </mtext>\n         <mrow>\n          <mrow>\n           <mi>&#945;</mi>\n           <mo>=</mo>\n           <mn>0</mn>\n          </mrow>\n          <mtext> </mtext>\n         </mrow>\n         <mtext>is </mtext>\n         <mtext>independent </mtext>\n         <mtext>of </mtext>\n         <mrow>\n          <mi>t</mi>\n          <mo>,</mo>\n          <mtext> </mtext>\n         </mrow>\n         <mtext>substitute </mtext>\n         <mrow>\n          <mrow>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n           <mo>=</mo>\n           <mfrac>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <msup>\n             <mi>t</mi>\n             <mn>2</mn>\n            </msup>\n           </mfrac>\n          </mrow>\n          <mtext> </mtext>\n         </mrow>\n         <mtext>and </mtext>\n         <mrow>\n          <mrow>\n           <mfrac>\n            <mrow>\n             <mi>d</mi>\n             <mo>&#8290;</mo>\n             <mrow>\n              <mi>y</mi>\n              <mo>&#8289;</mo>\n              <mo>(</mo>\n              <mi>t</mi>\n              <mo>)</mo>\n             </mrow>\n            </mrow>\n            <mrow>\n             <mi>d</mi>\n             <mo>&#8290;</mo>\n             <mi>t</mi>\n            </mrow>\n           </mfrac>\n           <mo>=</mo>\n           <mfrac>\n            <mrow>\n             <mrow>\n              <mi>t</mi>\n              <mo>&#8290;</mo>\n              <mfrac>\n               <mrow>\n                <mi>d</mi>\n                <mo>&#8290;</mo>\n                <mrow>\n                 <mi>v</mi>\n                 <mo>&#8289;</mo>\n                 <mo>(</mo>\n                 <mi>t</mi>\n                 <mo>)</mo>\n                </mrow>\n               </mrow>\n               <mrow>\n                <mi>d</mi>\n                <mo>&#8290;</mo>\n                <mi>t</mi>\n               </mrow>\n              </mfrac>\n             </mrow>\n             <mo>-</mo>\n             <mrow>\n              <mn>2</mn>\n              <mo>&#8290;</mo>\n              <mrow>\n               <mi>v</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n             </mrow>\n            </mrow>\n            <msup>\n             <mi>t</mi>\n             <mn>3</mn>\n            </msup>\n           </mfrac>\n          </mrow>\n         </mrow>\n        </mrow>\n        <mo>:</mo>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mfrac>\n          <mrow>\n           <mrow>\n            <mi>t</mi>\n            <mo>&#8290;</mo>\n            <mfrac>\n             <mrow>\n              <mi>d</mi>\n              <mo>&#8290;</mo>\n              <mrow>\n               <mi>v</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n             </mrow>\n             <mrow>\n              <mi>d</mi>\n              <mo>&#8290;</mo>\n              <mi>t</mi>\n             </mrow>\n            </mfrac>\n           </mrow>\n           <mo>-</mo>\n           <mrow>\n            <mn>2</mn>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n          </mrow>\n          <msup>\n           <mi>t</mi>\n           <mn>3</mn>\n          </msup>\n         </mfrac>\n         <mo>=</mo>\n         <mrow>\n          <mfrac>\n           <mn>4</mn>\n           <msup>\n            <mi>t</mi>\n            <mn>2</mn>\n           </msup>\n          </mfrac>\n          <mo>+</mo>\n          <mfrac>\n           <msup>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n           <msup>\n            <mi>t</mi>\n            <mn>2</mn>\n           </msup>\n          </mfrac>\n          <mo>-</mo>\n          <mfrac>\n           <mrow>\n            <mn>2</mn>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <msup>\n            <mi>t</mi>\n            <mn>3</mn>\n           </msup>\n          </mfrac>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>Solve </mtext>\n        <mtext>for </mtext>\n        <mrow>\n         <mfrac>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>v</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n          </mrow>\n         </mfrac>\n         <mo>:</mo>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mfrac>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>v</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n          </mrow>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n          </mrow>\n         </mfrac>\n         <mo>=</mo>\n         <mrow>\n          <msup>\n           <mrow>\n            <mi>v</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n           <mn>2</mn>\n          </msup>\n          <mo>+</mo>\n          <mn>4</mn>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mtext>Divide </mtext>\n         <mtext>both </mtext>\n         <mtext>sides </mtext>\n         <mtext>by </mtext>\n         <mrow>\n          <mrow>\n           <msup>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n           <mo>+</mo>\n           <mn>4</mn>\n          </mrow>\n         </mrow>\n        </mrow>\n        <mo>:</mo>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mfrac>\n          <mfrac>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mi>t</mi>\n           </mrow>\n          </mfrac>\n          <mrow>\n           <msup>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </msup>\n           <mo>+</mo>\n           <mn>4</mn>\n          </mrow>\n         </mfrac>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>= </mtext>\n        <mn>1</mn>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>Integrate </mtext>\n        <mtext>both </mtext>\n        <mtext>sides </mtext>\n        <mtext>with </mtext>\n        <mtext>respect </mtext>\n        <mtext>to </mtext>\n        <mrow>\n         <mi>t</mi>\n         <mo>:</mo>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mrow>\n          <mi>integral</mi>\n          <mo>&#8290;</mo>\n          <mrow>\n           <mfrac>\n            <mfrac>\n             <mrow>\n              <mi>d</mi>\n              <mo>&#8290;</mo>\n              <mrow>\n               <mi>v</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n             </mrow>\n             <mrow>\n              <mi>d</mi>\n              <mo>&#8290;</mo>\n              <mi>t</mi>\n             </mrow>\n            </mfrac>\n            <mrow>\n             <msup>\n              <mrow>\n               <mi>v</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mi>t</mi>\n               <mo>)</mo>\n              </mrow>\n              <mn>2</mn>\n             </msup>\n             <mo>+</mo>\n             <mn>4</mn>\n            </mrow>\n           </mfrac>\n           <mo>&#8290;</mo>\n           <mrow>\n            <mi>d</mi>\n            <mo>&#8290;</mo>\n            <mi>t</mi>\n           </mrow>\n          </mrow>\n         </mrow>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>= </mtext>\n        <mrow>\n         <mi>integral</mi>\n         <mo>&#8290;</mo>\n         <mrow>\n          <mn>1</mn>\n          <mo>&#8290;</mo>\n          <mrow>\n           <mi>d</mi>\n           <mo>&#8290;</mo>\n           <mi>t</mi>\n          </mrow>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>Evaluate </mtext>\n        <mtext>the </mtext>\n        <mtext>integrals:</mtext>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mrow>\n          <mfrac>\n           <mn>1</mn>\n           <mn>2</mn>\n          </mfrac>\n          <mo>&#8290;</mo>\n          <mrow>\n           <msup>\n            <mi>tan</mi>\n            <mrow>\n             <mo>-</mo>\n             <mn>1</mn>\n            </mrow>\n           </msup>\n           <mo>(</mo>\n           <mfrac>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mn>2</mn>\n           </mfrac>\n           <mo>)</mo>\n          </mrow>\n         </mrow>\n         <mtext> </mtext>\n        </mrow>\n        <mtext>= </mtext>\n        <mrow>\n         <mrow>\n          <mi>t</mi>\n          <mo>+</mo>\n          <msub>\n           <mi>c</mi>\n           <mn>1</mn>\n          </msub>\n         </mrow>\n         <mtext>, where </mtext>\n         <msub>\n          <mi>c</mi>\n          <mn>1</mn>\n         </msub>\n         <mtext> is an arbitrary constant.</mtext>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mtext>Solve </mtext>\n        <mtext>for </mtext>\n        <mrow>\n         <mrow>\n          <mi>v</mi>\n          <mo>&#8289;</mo>\n          <mo>(</mo>\n          <mi>t</mi>\n          <mo>)</mo>\n         </mrow>\n         <mo>:</mo>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mrow>\n          <mi>v</mi>\n          <mo>&#8289;</mo>\n          <mo>(</mo>\n          <mi>t</mi>\n          <mo>)</mo>\n         </mrow>\n         <mo>=</mo>\n         <mrow>\n          <mn>2</mn>\n          <mo>&#8290;</mo>\n          <mrow>\n           <mi>tan</mi>\n           <mo>&#8289;</mo>\n           <mo>(</mo>\n           <mrow>\n            <mn>2</mn>\n            <mo>&#8290;</mo>\n            <mrow>\n             <mo>(</mo>\n             <mrow>\n              <mi>t</mi>\n              <mo>+</mo>\n              <msub>\n               <mi>c</mi>\n               <mn>1</mn>\n              </msub>\n             </mrow>\n             <mo>)</mo>\n            </mrow>\n           </mrow>\n           <mo>)</mo>\n          </mrow>\n         </mrow>\n        </mrow>\n       </mrow>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n  <mtr>\n   <mtd>\n    <mtable displaystyle='true'>\n     <mtr>\n      <mtd>\n       <mrow>\n        <mrow>\n         <mtext>Substitute </mtext>\n         <mtext>back </mtext>\n         <mtext>for </mtext>\n         <mrow>\n          <mrow>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mi>t</mi>\n            <mo>)</mo>\n           </mrow>\n           <mo>=</mo>\n           <mfrac>\n            <mrow>\n             <mi>v</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <msup>\n             <mi>t</mi>\n             <mn>2</mn>\n            </msup>\n           </mfrac>\n          </mrow>\n         </mrow>\n        </mrow>\n        <mo>:</mo>\n       </mrow>\n      </mtd>\n     </mtr>\n     <mtr>\n      <mtd>\n       <mtable displaystyle='true'>\n        <mtr>\n         <mtd>\n          <mrow>\n           <mtext>Answer:</mtext>\n          </mrow>\n         </mtd>\n         <mtd>\n          <mtext> </mtext>\n         </mtd>\n        </mtr>\n        <mtr>\n         <mtd />\n         <mtd>\n          <mrow>\n           <mrow>\n            <mrow>\n             <mi>y</mi>\n             <mo>&#8289;</mo>\n             <mo>(</mo>\n             <mi>t</mi>\n             <mo>)</mo>\n            </mrow>\n            <mo>=</mo>\n            <mfrac>\n             <mrow>\n              <mn>2</mn>\n              <mo>&#8290;</mo>\n              <mrow>\n               <mi>tan</mi>\n               <mo>&#8289;</mo>\n               <mo>(</mo>\n               <mrow>\n                <mn>2</mn>\n                <mo>&#8290;</mo>\n                <mrow>\n                 <mo>(</mo>\n                 <mrow>\n                  <mi>t</mi>\n                  <mo>+</mo>\n                  <msub>\n                   <mi>c</mi>\n                   <mn>1</mn>\n                  </msub>\n                 </mrow>\n                 <mo>)</mo>\n                </mrow>\n               </mrow>\n               <mo>)</mo>\n              </mrow>\n             </mrow>\n             <msup>\n              <mi>t</mi>\n              <mn>2</mn>\n             </msup>\n            </mfrac>\n           </mrow>\n          </mrow>\n         </mtd>\n        </mtr>\n       </mtable>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n </mtable>\n</math>",
+                        "infos": {
+                            "text": "tan^(-1)(x) is the inverse tangent function",
+                            "img": {
+                                "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP175014bc9hf1fg8f960100001b75a5fh7f1hchdi?MSPStoreType=image/gif&s=29",
+                                "alt": "tan^(-1)(x) is the inverse tangent function",
+                                "title": "tan^(-1)(x) is the inverse tangent function",
+                                "width": "258",
+                                "height": "21"
+                            },
+                            "links": [
+                                {
+                                    "url": "http://reference.wolfram.com/language/ref/ArcTan.html",
+                                    "text": "Documentation",
+                                    "title": "Mathematica"
+                                },
+                                {
+                                    "url": "http://functions.wolfram.com/ElementaryFunctions/ArcTan",
+                                    "text": "Properties",
+                                    "title": "Wolfram Functions Site"
+                                },
+                                {
+                                    "url": "http://mathworld.wolfram.com/InverseTangent.html",
+                                    "text": "Definition",
+                                    "title": "MathWorld"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "expressiontypes": [
+                    {
+                        "name": "Default"
+                    },
+                    {
+                        "name": "Default"
+                    }
+                ],
+                "states": [
+                    {
+                        "count": 2,
+                        "value": "Solve as Chini's equation",
+                        "delimiters": "",
+                        "states": [
+                            {
+                                "name": "Solve as Chini's equation",
+                                "input": "Solution__Solve as Chini's equation"
+                            },
+                            {
+                                "name": "Solve as Riccati's equation",
+                                "input": "Solution__Solve as Riccati's equation"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hide steps",
+                        "input": "Solution__Hide steps"
+                    }
+                ]
+            },
+            {
+                "title": "Slope field",
+                "scanner": "ODE",
+                "id": "SlopeField",
+                "position": 600,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP175114bc9hf1fg8f960100004g8f019b5i6466e5?MSPStoreType=image/gif&s=29",
+                            "alt": "Slope field",
+                            "title": "",
+                            "width": 250,
+                            "height": 249,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": ""
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                },
+                "states": [
+                    {
+                        "name": "Fewer points",
+                        "input": "SlopeField__Fewer points"
+                    },
+                    {
+                        "name": "More points",
+                        "input": "SlopeField__More points"
+                    },
+                    {
+                        "count": 3,
+                        "value": "Slope field",
+                        "delimiters": "",
+                        "states": [
+                            {
+                                "name": "Vector field",
+                                "input": "SlopeField__Vector field"
+                            },
+                            {
+                                "name": "Slope field",
+                                "input": "SlopeField__Slope field"
+                            },
+                            {
+                                "name": "Direction field",
+                                "input": "SlopeField__Direction field"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Plots of sample individual solution",
+                "scanner": "ODE",
+                "id": "PlotsOfSampleIndividualSolution",
+                "position": 700,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP175214bc9hf1fg8f960100005c3ai2b857i7194h?MSPStoreType=image/gif&s=29",
+                            "alt": " | | | | y(1) = 1",
+                            "title": " | | | | y(1) = 1",
+                            "width": 384,
+                            "height": 100,
+                            "type": "Default",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": " | | | | y(1) = 1",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mtable>\n  <mtr>\n   <mtd>\n    <mtable>\n     <mtr>\n      <mtd>\n       <mtext> </mtext>\n      </mtd>\n      <mtd>\n       <mtext> </mtext>\n      </mtd>\n      <mtd>\n       <mtable>\n        <mtr>\n         <mtd>\n          <mrow>\n           <mrow>\n            <mi>y</mi>\n            <mo>&#8289;</mo>\n            <mo>(</mo>\n            <mn>1</mn>\n            <mo>)</mo>\n           </mrow>\n           <mo>=</mo>\n           <mn>1</mn>\n          </mrow>\n         </mtd>\n        </mtr>\n       </mtable>\n      </mtd>\n     </mtr>\n    </mtable>\n   </mtd>\n  </mtr>\n </mtable>\n</math>"
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                }
+            },
+            {
+                "title": "Sample solution family",
+                "scanner": "ODE",
+                "id": "SampleSolutionFamily",
+                "position": 800,
+                "error": false,
+                "numsubpods": 1,
+                "subpods": [
+                    {
+                        "title": "",
+                        "img": {
+                            "src": "https://www3.wolframalpha.com/Calculate/MSP/MSP175314bc9hf1fg8f960100003aa8ge188hce84c3?MSPStoreType=image/gif&s=29",
+                            "alt": "  (sampling y(1))",
+                            "title": "  (sampling y(1))",
+                            "width": 350,
+                            "height": 160,
+                            "type": "2DMathPlot_2",
+                            "themes": "1,2,3,4,5,6,7,8,9,10,11,12",
+                            "colorinvertable": true
+                        },
+                        "plaintext": "  (sampling y(1))",
+                        "mathml": "<math xmlns='http://www.w3.org/1998/Math/MathML'\n    mathematica:form='StandardForm'\n    xmlns:mathematica='http://www.wolfram.com/XML/'>\n <mrow>\n  <mtext>  </mtext>\n  <mrow>\n   <mo>(</mo>\n   <mrow>\n    <mtext>sampling </mtext>\n    <mrow>\n     <mi>y</mi>\n     <mo>&#8289;</mo>\n     <mo>(</mo>\n     <mn>1</mn>\n     <mo>)</mo>\n    </mrow>\n   </mrow>\n   <mo>)</mo>\n  </mrow>\n </mrow>\n</math>"
+                    }
+                ],
+                "expressiontypes": {
+                    "name": "Default"
+                }
+            }
+        ]
+    }
+}
